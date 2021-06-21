@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+  before_action :authenticate_user, only: [:show]
   
   def new 
     @user = User.new
@@ -15,8 +16,10 @@ end
 end
 
 def show 
-  if !logged_in?
-    redirect_to new_user_path
+  @user = User.find_by(id: params[:id])
+  if !current_user.admin
+    if current_user != @user 
+    redirect_to root_path
   end
   end 
 
