@@ -12,3 +12,16 @@ class UsersController < ApplicationController
     else 
       render 'new'
 end
+end
+
+def show 
+  if !logged_in?
+    redirect_to new_user_path
+  end
+  end 
+
+private
+def user_params
+  params.require(:user).permit(:name, :password, :nausea, :happiness, :height, :tickets)
+end
+end 
