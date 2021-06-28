@@ -16,10 +16,10 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id 
         redirect_to user_path(@user)
       else 
-        render 'new'
+        render root_path
       end
     else 
-      render 'new'
+      render root_path
     end
   end   
 end
