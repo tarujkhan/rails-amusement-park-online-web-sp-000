@@ -18,7 +18,7 @@ end
 
 def authenticate_user
   if !logged_in? && current_user.admin
-    redirect_to new_user_path
+    redirect_to root_path
   end
   
 end
