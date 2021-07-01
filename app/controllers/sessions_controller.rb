@@ -23,8 +23,8 @@ class SessionsController < ApplicationController
     end
   end   
   
-  def logout
-    session.destroy(:user_id)
+  def destroy
+    session.destroy
     redirect_to root_path
   end 
 end
