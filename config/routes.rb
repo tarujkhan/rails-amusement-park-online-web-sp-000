@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :sessions
   get '/signin', to: 'sessions#new', as: :signin
   post '/signin', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
 end
