@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new', as: :signin
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/index', to: 'attractions#index'
 end
