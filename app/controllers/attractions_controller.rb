@@ -5,6 +5,10 @@ class AttractionsController < ApplicationController
 
   def show
     @attraction = Attraction.find_by(id: params[:id])
+    # byebug
+    if session[:user_id]
+      @user = User.find(session[:user_id]) #bringing a user inside the attractions index page
+    end
   end
 
   def create
