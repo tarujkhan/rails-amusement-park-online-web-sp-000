@@ -6,6 +6,15 @@ class AttractionsController < ApplicationController
     # byebug
   end
 
+  def edit
+  end
+
+  def add
+  end
+
+  def destroy
+  end 
+
   def show
     # @rides = Ride.all
     @attraction = Attraction.find_by(id: params[:id])
