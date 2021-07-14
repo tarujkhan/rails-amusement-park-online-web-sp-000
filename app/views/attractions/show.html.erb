@@ -1,13 +1,14 @@
-# <%= button_to "Go on this ride", :action => "show" %>
 
-<%= form_for @rides do |f| %>
+
+<%= form_for @ride do |f| %>
     <% if current_user %>
-    <%= f.hidden_field :user_id, value => @rides.id %>
-    <%= f.hidden_field :attraction_id, value => @rides.id %>
-    <% if user.admin %>
-    <%= link_to "Add", attraction_add_path(@attraction) %>
-    <%= link_to "Edit", attraction_edit_path(@attraction) %>
-    <%= link_to "Delete", attraction_path(@attraction) %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :attraction_id %>
+    <%= button_to "Go on this ride" %>
+    <% if @user.admin %>
+    <%= link_to "Add", attraction_add_path(attraction) %>
+    <%= link_to "Edit", attraction_edit_path(attraction) %>
+    <%= link_to "Delete", attraction_path(attraction) %>
     <% end %>
     <% end %>
     <% end %>

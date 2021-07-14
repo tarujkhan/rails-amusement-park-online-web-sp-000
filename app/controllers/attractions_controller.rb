@@ -1,13 +1,13 @@
 class AttractionsController < ApplicationController
   def index
     @attractions = Attraction.all
-    @users = User.all
-    @rides = Ride.all
+    # @users = User.all
+    # @rides = Ride.all
     # byebug
   end
 
   def edit
-  end
+  end 
 
   def add
   end
@@ -19,6 +19,7 @@ class AttractionsController < ApplicationController
     # @rides = Ride.all
     @attraction = Attraction.find_by(id: params[:id])
     # byebug
+    @ride = @attraction.rides.build(user_id: current_user)
     if session[:user_id]
       @user = User.find(session[:user_id]) #bringing a user inside the attractions index page
       # redirect_to user_path

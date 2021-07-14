@@ -1,5 +1,6 @@
 class RidesController < ApplicationController
     def create
+        byebug
         @ride = Ride.new(ride_params)
     end 
 end
