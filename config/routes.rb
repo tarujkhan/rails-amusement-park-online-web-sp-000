@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/attractions', to: 'attractions#index'
   get '/attractions/:id', to: 'attractions#show', as: 'attraction'
   post '/attractions/:id', to: 'rides#create'
-  get '/attraction/edit, to: 'attractions#edit'
+  get '/attraction/edit', to: 'attractions#edit'
   get '/attraction/add', to: 'attractions#add'
-  delete '/attractions/:id'. to: 'attractions#destroy'
+  delete '/attractions/:id', to: 'attractions#destroy'
 end

@@ -5,5 +5,9 @@
     <%= f.hidden_field :user_id, value => @rides.id %>
     <%= f.hidden_field :attraction_id, value => @rides.id %>
     <% if user.admin %>
-    <% p "ADMIN" %>
+    <%= link_to "Add", attraction_add_path(@attraction) %>
+    <%= link_to "Edit", attraction_edit_path(@attraction) %>
+    <%= link_to "Delete", attraction_path(@attraction) %>
+    <% end %>
+    <% end %>
     <% end %>
