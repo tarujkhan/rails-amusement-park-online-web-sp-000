@@ -1,1 +1,6 @@
-<%= button_to "Go on this ride", :action => "show" %>
+# <%= button_to "Go on this ride", :action => "show" %>
+
+<%= form_for @rides do |f| %>
+    <%= f.hidden_field :user_id, value => @rides.id %>
+    <%= f.hidden_field :attraction_id, value => @rides.id %>
+    <% end %>

@@ -1,13 +1,18 @@
 class AttractionsController < ApplicationController
   def index
     @attractions = Attraction.all
+    @users = User.all
+    @rides = Ride.all
+    # byebug
   end
 
   def show
+    # @rides = Ride.all
     @attraction = Attraction.find_by(id: params[:id])
     # byebug
     if session[:user_id]
       @user = User.find(session[:user_id]) #bringing a user inside the attractions index page
+      # redirect_to user_path
     end
   end
 

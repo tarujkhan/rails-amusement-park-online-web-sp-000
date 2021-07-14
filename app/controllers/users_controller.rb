@@ -18,17 +18,20 @@ class UsersController < ApplicationController
   end
 end
 
+  def index
+  end
 
 def show 
-  @user = User.find_by(id: params[:id])
-  if !current_user.admin
-    if current_user != @user 
-    redirect_to root_path
-  end
+  #  byebug
+  # @user = User.find_by(id: params[:id])
+  @user = current_user
+  # if !current_user.admin
+    # if current_user != @user 
+  #   redirect_to root_path
+  # end
 end
 end
 private
 def user_params
   params.require(:user).permit(:name, :password, :nausea, :happiness, :height, :tickets, :admin)
-end
 end
