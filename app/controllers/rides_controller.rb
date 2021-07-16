@@ -3,6 +3,7 @@ class RidesController < ApplicationController
     def create
         # byebug
         @ride = Ride.create(ride_params)
+        @ride.take_ride
         redirect_to user_path(@ride.user)
         # @user = User.find(session[:user_id])
     end 
