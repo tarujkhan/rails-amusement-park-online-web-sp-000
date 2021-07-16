@@ -1,7 +1,8 @@
 class RidesController < ApplicationController
+    skip_before_action :verify_authenticity_token
     def create
-        # byebug
-        @ride = Ride.new(ride_params)
+        byebug
+        @ride = Ride.create(ride_params)
         @user = User.find_by(name: params[:user][:name])
         # @user = User.find(session[:user_id])
     end 
