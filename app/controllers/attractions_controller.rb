@@ -1,10 +1,24 @@
 class AttractionsController < ApplicationController
   def index
     @attractions = Attraction.all
-    # @users = User.all
-    # @rides = Ride.all
-    # byebug
+      if self.user.height > self.attraction.min_height && self.user.tickets > self.attraction.tickets 
+      flash[:message] = "Thanks for riding the #{@attraction.name}"
+      else 
+        self.attraction.min_height > self.user.height
+      flash[:message] = "You are not tall enough to tide the #{@attraction.name}"
+      elsif 
+        self.attraction.tickets > self.user.tickets
+        flash[:message] = "You do not have enough tickets to ride #{@attraction.name}"
+      elsif 
+        self.attraction.min_height > self.user.height && self.attraction.tickets > self.user.tickets 
+        flash[:message] = "You are not tall enough to ride the #{@attraction.name}"
+        flash[:message] = "You do not have enough tickets to ride the #{@attraction.name}"
+        end 
+      end
+    end
   end
+end
+
 
   def edit
   end 
