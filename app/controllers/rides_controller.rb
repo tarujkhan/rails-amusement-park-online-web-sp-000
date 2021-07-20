@@ -3,8 +3,10 @@ class RidesController < ApplicationController
     def create
         #byebug
         @ride = Ride.create(ride_params)
-        @ride.take_ride
-        @take_ride = take_ride
+        # byebug
+        # @result = @ride.take_ride
+        # byebug
+        @take_ride = @ride.take_ride
         redirect_to user_path(@ride.user), notice: "Thanks for riding the #{@attraction.name}"
         # @user = User.find(session[:user_id])
         # check for tickets check if user is tall enough @take_it = take_ride

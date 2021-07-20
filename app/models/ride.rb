@@ -9,8 +9,17 @@ class Ride < ActiveRecord::Base
       "Sorry. You do not have enough tickets to ride the #{self.attraction.name}."
       elsif self.attraction.min_height > self.user.height
       "Sorry. You are not tall enough to ride the #{self.attraction.name}."
-    else
-      self.user.update(tickets: self.user.tickets - self.attraction.tickets, nausea: self.user.nausea + self.attraction.nausea_rating, happiness: self.user.happiness + self.attraction.happiness_rating)
+    # else
+      # self.user.update(tickets: self.user.tickets - self.attraction.tickets, nausea: self.user.nausea + self.attraction.nausea_rating, happiness: self.user.happiness + self.attraction.happiness_rating)
     end
   end
 end
+
+
+
+# check if user has passed all the checks and then return the message
+# after user passes all the checks return the message 
+# Thanks for riding the
+# try refactoring take_ride method
+# what is the return value of take_ride? how to render in controller
+# if line 13 returns true do something if false do something else
