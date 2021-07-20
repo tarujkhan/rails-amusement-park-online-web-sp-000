@@ -4,7 +4,8 @@ class RidesController < ApplicationController
         #byebug
         @ride = Ride.create(ride_params)
         @ride.take_ride
-        redirect_to user_path(@ride.user)
+        @take_ride = take_ride
+        redirect_to user_path(@ride.user), notice: "Thanks for riding the #{@attraction.name}"
         # @user = User.find(session[:user_id])
         # check for tickets check if user is tall enough @take_it = take_ride
         #  flash: #{message:Thanks for ridingthe } - save to a variable the return value of take ride
