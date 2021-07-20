@@ -1,11 +1,15 @@
 class RidesController < ApplicationController
     skip_before_action :verify_authenticity_token
     def create
-        # byebug
+        #byebug
         @ride = Ride.create(ride_params)
         @ride.take_ride
         redirect_to user_path(@ride.user)
         # @user = User.find(session[:user_id])
+        # check for tickets check if user is tall enough @take_it = take_ride
+        #  flash: #{message:Thanks for ridingthe } - save to a variable the return value of take ride
+        # these steps should be done before the redirect and attach the flash message with the redirect
+        # in user show display flash message
     end 
 end
 

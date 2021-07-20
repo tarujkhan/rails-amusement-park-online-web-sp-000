@@ -1,23 +1,23 @@
 class AttractionsController < ApplicationController
   def index
     @attractions = Attraction.all
-      if self.user.height > self.attraction.min_height && self.user.tickets > self.attraction.tickets 
-      flash[:message] = "Thanks for riding the #{@attraction.name}"
-      else 
-        self.attraction.min_height > self.user.height
-      flash[:message] = "You are not tall enough to tide the #{@attraction.name}"
-      elsif 
-        self.attraction.tickets > self.user.tickets
-        flash[:message] = "You do not have enough tickets to ride #{@attraction.name}"
-      elsif 
-        self.attraction.min_height > self.user.height && self.attraction.tickets > self.user.tickets 
-        flash[:message] = "You are not tall enough to ride the #{@attraction.name}"
-        flash[:message] = "You do not have enough tickets to ride the #{@attraction.name}"
-        end 
+    # @attraction = Attraction.find_by(id: params[:id])
+    # @user = User.find(session[:user_id])
+    #   if @user.height > @attraction.min_height && @user.tickets > @attraction.tickets 
+    #   flash[:message] = "Thanks for riding the #{@attraction.name}"
+    #   elsif
+    #     @attraction.min_height > @user.height
+    #   flash[:message] = "You are not tall enough to ride the #{@attraction.name}"
+    #   elsif 
+    #     @attraction.tickets > @user.tickets
+    #     flash[:message] = "You do not have enough tickets to ride the #{@attraction.name}"
+    #   else
+    #     @attraction.min_height > @user.height && @attraction.tickets > @user.tickets 
+    #     flash[:message] = "You are not tall enough to ride the #{@attraction.name}"
+    #     flash[:message] = "You do not have enough tickets to ride the #{@attraction.name}"
+    #     end 
       end
-    end
-  end
-end
+  
 
 
   def edit

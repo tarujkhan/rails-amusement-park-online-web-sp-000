@@ -22,6 +22,7 @@ end
   end
 
 def show 
+  
   #  byebug
   # @user = User.find_by(id: params[:id])
   @user = current_user
@@ -35,3 +36,5 @@ private
 def user_params
   params.require(:user).permit(:name, :password, :nausea, :happiness, :height, :tickets, :admin)
 end
+
+
