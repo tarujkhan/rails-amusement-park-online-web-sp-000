@@ -6,8 +6,9 @@ class RidesController < ApplicationController
         # byebug
         # @result = @ride.take_ride
         # byebug
-        @take_ride = @ride.take_ride
-        redirect_to user_path(@ride.user), flash[:message] = @take_ride
+        @take_ride = @ride.take_ride        
+        # redirect_to user_path(@ride.user), flash[:message] = "#{@take_ride}" 
+        redirect_to user_path(@ride.user), flash:{message: @take_ride} 
         # @user = User.find(session[:user_id])
         # check for tickets check if user is tal enough @take_it = take_ride
         #  flash: #{message:Thanks for ridingthe } - save to a variable the return value of take ride
@@ -21,3 +22,5 @@ def ride_params
     params.require(:ride).permit(:user_id, :attraction_id) 
     # if params[:ride]
 end 
+
+
