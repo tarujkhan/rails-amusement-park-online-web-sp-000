@@ -24,7 +24,11 @@ class AttractionsController < ApplicationController
   end 
 
   def add
+    @attraction = Attraction.new(attraction_params)
+    if admin 
+    self << @attraction
   end
+end
 
   def destroy
   end 
@@ -42,6 +46,7 @@ class AttractionsController < ApplicationController
 
   def create
     @attraction = Attraction.new(attraction_params)
+    # check to see if admin. if admin let them add an attraction. 
   end 
 
   private 
