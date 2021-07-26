@@ -1,9 +1,14 @@
 
 <% @attractions.each do |attraction| %>
    
-    <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
-    <%= link_to 'See attractions', attraction_path(attraction) %>
-    <%= link_to 'Add attraction', attraction_add_path(attraction) %>
+    <%= attraction.name %>
+    <% if current_user.admin %>
+        <%= link_to 'See attractions #{attraction.name}', attraction_path(attraction) %>
+    <% else %>
+        <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
     <% end %>
-
+<% end %>
  
+<% if current_user.admin %>
+<%= link_to 'New Attraction', attractions_new_path %>
+<% end %>
