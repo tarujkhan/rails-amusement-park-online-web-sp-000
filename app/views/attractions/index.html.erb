@@ -6,6 +6,7 @@
         <%= link_to 'See attractions #{attraction.name}', attraction_path(attraction) %>
     <% else %>
         <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+        <%= 'Show #{attraction.name}' %>
     <% end %>
 <% end %>
  
