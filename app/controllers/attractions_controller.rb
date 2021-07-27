@@ -18,17 +18,18 @@ class AttractionsController < ApplicationController
       @attraction = Attraction.find_by(id: params[:id])
       # byebug
       @ride = @attraction.rides.build(user_id: current_user.id)
-    if session[:user_id]
+    if session[:user_id] 
       @user = User.find(session[:user_id]) #bringing a user inside the attractions index page
-      # redirect_to user_path
+      # redirect_to user_path - this is the user admin part to check if user is logged in or not
     end
   end
 
   def create
-    byebug
-    @attraction = Attraction.new(attraction_params)
     
+    @attraction = Attraction.create(attraction_params)
+    # byebug
     redirect_to attraction_path(@attraction)
+    # use create instead of new to create and save an id
     # check to see if admin. if admin let them add an attraction. 
   end 
 

@@ -1,4 +1,4 @@
-
+<%= @attraction.name %>
 
 <%= form_for @ride do |f| %>
     
@@ -9,8 +9,9 @@
     <input type='hidden' name='ride[attraction_id]' value='<%=@attraction.id %>'>
     <%= f.submit "Go on this ride" %>
     <% if @user.admin %>
-    <%= link_to "Add", attraction_add_path(@attraction) %>
-    <%= link_to "Edit", attraction_edit_path(@attraction) %>
+    <%= link_to "Add", new_attraction_path(@attraction) %>
+    <%= link_to "Edit", [:edit, @attraction] %> 
+    <%# can be written as edit_attraction_path %>
     <%= link_to "Delete", attraction_path(@attraction) %>
     <% end %>
     <% end %>
