@@ -8,7 +8,16 @@ class AttractionsController < ApplicationController
   end
 
   def edit
+    @attraction = Attraction.find_by(id: params[:id])
+
   end 
+
+def update
+  @attraction = Attraction.find_by(id: params[:id])
+  @attraction = Attraction.update(attraction_params)
+  # byebug
+  redirect_to :controller => 'attractions', :action => 'show'
+end 
 
   def destroy
   end 
